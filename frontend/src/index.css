@@ -1,0 +1,128 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+ 
+:root {
+  /* Jade Pebble Morning — light */
+  --bg: #faf8f2;
+  --bg-alt: #f1ede1;
+  --ink: #18261f;
+  --ink-soft: #51625a;
+  --jade: #2f6f56;
+  --jade-deep: #1e4435;
+  --jade-mist: #a9c9bb;
+  --jade-mist-rgb: 169, 201, 187;
+  --pebble: #ddd6c4;
+  --pebble-line: #cdc4ac;
+  --gold: #c99a4c;
+  --shadow: rgba(30, 68, 53, 0.14);
+  --card-bg: #ffffff;
+ 
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Fraunces', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+ 
+  font: 18px/150% var(--sans);
+  letter-spacing: 0.1px;
+  color-scheme: light dark;
+  color: var(--ink);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+ 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #10160f;
+    --bg-alt: #161f17;
+    --ink: #e9efe9;
+    --ink-soft: #a3b3a8;
+    --jade: #6cb696;
+    --jade-deep: #bfe3d2;
+    --jade-mist: #335146;
+    --jade-mist-rgb: 51, 81, 70;
+    --pebble: #2a322b;
+    --pebble-line: #3a443b;
+    --gold: #e0b669;
+    --shadow: rgba(0, 0, 0, 0.45);
+    --card-bg: #161f17;
+  }
+}
+ 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 76px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--jade);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+}
+ 
+#root {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+ 
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+}
+ 
+p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+ 
+a {
+  color: inherit;
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+ 
+
+
+
+
+
+
