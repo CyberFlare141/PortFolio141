@@ -70,7 +70,7 @@ const education = [
     status: 'Currently Enrolled',
     year: 'Ongoing',
     gradeLabel: 'CGPA',
-    gpa: 'Ongoing',
+    gpa: '3.30',
   },
   {
     degree: 'Higher Secondary Certificate (HSC)',
@@ -291,6 +291,18 @@ function App() {
               </a>
               <a href="#contact" className="button button-secondary">
                 Let’s talk
+              </a>
+              <a
+                href="/resume/Masrafi_Iqbal_Resume.odt"
+                className="button button-secondary"
+                download="Masrafi_Iqbal_Resume.odt"
+              >
+                Resume
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
               </a>
             </div>
 
