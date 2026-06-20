@@ -36,10 +36,41 @@ const projects = [
   },
 ]
 
+const skillLogos = {
+  C: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg',
+  'C++': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg',
+  Python: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg',
+  Java: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
+  PHP: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg',
+  Prolog: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prolog/prolog-original.svg',
+  SQL: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Cpath d="M12 16c0-5 8.95-9 20-9s20 4 20 9v32c0 5-8.95 9-20 9s-20-4-20-9V16z" fill="%2300a9d6"/%3E%3Cellipse cx="32" cy="16" rx="20" ry="9" fill="%2326c6f0"/%3E%3Cellipse cx="32" cy="16" rx="13" ry="4.6" fill="%231f2937" opacity=".55"/%3E%3Ctext x="32" y="39" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="800" fill="white"%3ESQL%3C/text%3E%3C/svg%3E',
+  React: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+  Laravel: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
+  'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+  MongoDB: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+  MySQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',
+  PostgreSQL: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg',
+  HTML5: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
+  CSS: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+  'VS Code': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+  PyCharm: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg',
+  'Code::Blocks': 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"%3E%3Crect width="64" height="64" rx="14" fill="%231f2937"/%3E%3Crect x="12" y="12" width="17" height="17" rx="3" fill="%23ef4444"/%3E%3Crect x="35" y="12" width="17" height="17" rx="3" fill="%232563eb"/%3E%3Crect x="12" y="35" width="17" height="17" rx="3" fill="%23f59e0b"/%3E%3Crect x="35" y="35" width="17" height="17" rx="3" fill="%2316a34a"/%3E%3Cpath d="M40 32a8 8 0 1 1-2.4-5.7" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round"/%3E%3Cpath d="M39 24h7v7" fill="none" stroke="%23fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/%3E%3C/svg%3E',
+  Git: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
+  GitHub: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+  Azure: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
+  Docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+  Postman: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
+  Figma: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+  Canva: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg',
+  Linux: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',
+  'Google Colaboratory': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg',
+  'Jupyter Notebook': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg',
+}
+
 const skillCategories = [
   {
     category: 'Programming Languages',
-    skills: ['C', 'C++', 'Python', 'Java', 'PHP', 'Prolog'],
+    skills: ['C', 'C++', 'Python', 'Java', 'PHP', 'Prolog', 'SQL'],
   },
   {
     category: 'Frameworks & Libraries',
@@ -57,11 +88,9 @@ const skillCategories = [
     category: 'Tools & Platforms',
     skills: ['VS Code', 'PyCharm', 'Code::Blocks', 'Git', 'GitHub', 'Azure', 'Google Colaboratory', 'Jupyter Notebook', 'Docker' , 'Postman', 'Figma', 'Canva', 'Linux'],
   },
-  {
-    category: 'Soft Skills',
-    skills: ['Consistency', 'Time Management' , 'Teamwork', 'Problem Solving', 'Adaptability'],
-  },
 ]
+
+const projectsPerPage = 2
 
 const education = [
   {
@@ -268,6 +297,20 @@ function Navigation() {
 
 function App() {
   const revealRef = useScrollReveal()
+  const [projectPage, setProjectPage] = useState(0)
+  const totalProjectPages = Math.ceil(projects.length / projectsPerPage)
+  const visibleProjects = projects.slice(
+    projectPage * projectsPerPage,
+    projectPage * projectsPerPage + projectsPerPage
+  )
+
+  const goToPreviousProjectPage = () => {
+    setProjectPage((page) => Math.max(page - 1, 0))
+  }
+
+  const goToNextProjectPage = () => {
+    setProjectPage((page) => Math.min(page + 1, totalProjectPages - 1))
+  }
 
   return (
     <>
@@ -295,7 +338,7 @@ function App() {
               <a
                 href="/resume/Masrafi_Iqbal_Resume.odt"
                 className="button button-secondary"
-                download="Masrafi_Iqbal_Resume.odt"
+                download="Masrafi_Iqbal_Resume.pdf"
               >
                 Resume
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -385,9 +428,16 @@ function App() {
                 <h3>{category.category}</h3>
                 <div className="skill-list">
                   {category.skills.map((skill) => (
-                    <span key={skill} className="skill-badge">
-                      {skill}
-                    </span>
+                    <div key={skill} className="skill-badge">
+                      <span className="skill-logo" aria-hidden="true">
+                        {skillLogos[skill] ? (
+                          <img src={skillLogos[skill]} alt="" loading="lazy" />
+                        ) : (
+                          <span>{skill.split(/\s+/).map((word) => word[0]).join('').slice(0, 2)}</span>
+                        )}
+                      </span>
+                      <span className="skill-name">{skill}</span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -444,13 +494,16 @@ function App() {
           </div>
 
           <div className="project-grid">
-            {projects.map((project, index) => (
+            {visibleProjects.map((project, index) => {
+              const projectIndex = projectPage * projectsPerPage + index
+
+              return (
               <article
-                className="project-card reveal-on-scroll"
+                className="project-card reveal-on-scroll in-view"
                 data-reveal-delay={index * 90}
                 key={project.title + project.kicker}
               >
-                <span className="project-number">0{index + 1}</span>
+                <span className="project-number">0{projectIndex + 1}</span>
                 <p className="project-kicker">{project.kicker}</p>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
@@ -473,7 +526,34 @@ function App() {
                   </a>
                 </div>
               </article>
-            ))}
+              )
+            })}
+          </div>
+
+          <div className="project-pagination" aria-label="Project pagination">
+            <button
+              type="button"
+              className="project-page-button"
+              onClick={goToPreviousProjectPage}
+              disabled={projectPage === 0}
+              aria-label="Previous projects"
+            >
+              <span aria-hidden="true">←</span>
+              Previous
+            </button>
+            <span className="project-page-status">
+              {projectPage + 1} / {totalProjectPages}
+            </span>
+            <button
+              type="button"
+              className="project-page-button"
+              onClick={goToNextProjectPage}
+              disabled={projectPage === totalProjectPages - 1}
+              aria-label="Next projects"
+            >
+              Next
+              <span aria-hidden="true">→</span>
+            </button>
           </div>
         </section>
 
