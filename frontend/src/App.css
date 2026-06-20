@@ -31,14 +31,18 @@
 }
 
 .nav-brand {
-  font: 600 26px/1 var(--heading);
-  letter-spacing: -.05em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  color: var(--ink);
   z-index: 2;
 }
 
-.nav-brand span { color: var(--gold); }
+.nav-brand img {
+  display: block;
+  width: 54px;
+  height: 42px;
+  object-fit: contain;
+}
 
 .nav-menu {
   display: flex;
@@ -166,7 +170,7 @@ h2 em, .hero-copy h1 em {
   transition: transform .3s var(--ease), box-shadow .3s ease, background .3s ease;
 }
 
-.button-primary { color: #f7f5ef; background: var(--jade-deep); box-shadow: 0 14px 30px -18px var(--jade-deep); }
+.button-primary { color: #000000; background: var(--jade-deep); box-shadow: 0 14px 30px -18px var(--jade-deep); }
 .button-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 35px -17px var(--jade-deep); }
 .button-secondary { border-color: var(--pebble-line); background: var(--card-bg); color: var(--ink); }
 .button-secondary:hover { transform: translateY(-3px); border-color: var(--jade); }

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import heroImg from './assets/Masrafi.png'
+import brandLogo from './assets/M.png'
 import './App.css'
 
 const projects = [
@@ -68,6 +69,7 @@ const education = [
     institution: 'Ahsanullah University of Science and Technology (AUST)',
     status: 'Currently Enrolled',
     year: 'Ongoing',
+    gradeLabel: 'CGPA',
     gpa: 'Ongoing',
   },
   {
@@ -79,7 +81,7 @@ const education = [
   },
   {
     degree: 'Secondary School Certificate (SSC)',
-    institution: 'Jatra High School and College',
+    institution: 'Jatrabari High School and College',
     status: 'Passed',
     year: '2020',
     gpa: '5.00',
@@ -237,7 +239,7 @@ function Navigation() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <a className="nav-brand" href="#home" onClick={() => setIsOpen(false)} aria-label="Masrafi Iqbal — home">
-          MI<span>.</span>
+          <img src={brandLogo} alt="" />
         </a>
 
         <button className={`nav-toggle ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" aria-expanded={isOpen}>
@@ -392,7 +394,7 @@ function App() {
                       <h3>{item.degree}</h3>
                       <p className="institution">{item.institution}</p>
                     </div>
-                    <span className="education-gpa">GPA: {item.gpa}</span>
+                    <span className="education-gpa">{item.gradeLabel ?? 'GPA'}: {item.gpa}</span>
                   </div>
                   <p className="meta">
                     {item.year} • {item.status}
@@ -469,7 +471,7 @@ function App() {
           <a className="contact-email" href="https://mail.google.com/mail/?view=cm&fs=1&to=masrafiiqbal1%40gmail.com" target="_blank" rel="noreferrer noopener">masrafiiqbal1@gmail.com <span aria-hidden="true">↗</span></a>
         </section>
         <footer className="site-footer">
-          <a className="nav-brand" href="#home">MI<span>.</span></a>
+          <a className="nav-brand" href="#home" aria-label="Masrafi Iqbal — home"><img src={brandLogo} alt="" /></a>
           <p>Designed &amp; built by Masrafi Iqbal.</p>
           <p>© {new Date().getFullYear()}</p>
         </footer>
