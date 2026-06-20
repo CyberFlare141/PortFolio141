@@ -211,7 +211,7 @@ function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
 
-      const sections = ['home', 'skills', 'education', 'projects', 'contact']
+      const sections = ['home', 'about', 'skills', 'education', 'projects', 'contact']
       for (const section of sections) {
         const element = document.getElementById(section)
         if (element) {
@@ -233,7 +233,7 @@ function Navigation() {
     return () => document.body.classList.remove('menu-open')
   }, [isOpen])
 
-  const navLinks = ['home', 'skills', 'education', 'projects', 'contact']
+  const navLinks = ['home', 'about', 'skills', 'education', 'projects', 'contact']
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -275,7 +275,6 @@ function App() {
       <main className="hero-page" ref={revealRef}>
         <section id="home" className="hero-panel">
           <div className="hero-copy">
-            <p className="hero-eyebrow reveal-up"><span className="status-dot" /> Available for opportunities</p>
             <h1 className="reveal-up">
               Building useful things<br />for the <em>real world.</em>
             </h1>
@@ -325,7 +324,7 @@ function App() {
             <div className="orbit-note orbit-note--top">Full-stack</div>
             <div className="orbit-note orbit-note--bottom">MLOps curious</div>
           </div>
-          <a className="scroll-cue" href="#skills" aria-label="Scroll to skills"><span /> Scroll to explore</a>
+          <a className="scroll-cue" href="#about" aria-label="Scroll to about"><span /> Scroll to explore</a>
         </section>
 
         <div className="tide-divider" aria-hidden="true">
@@ -336,6 +335,26 @@ function App() {
             />
           </svg>
         </div>
+
+        <section id="about" className="about-section">
+          <div className="section-head reveal-on-scroll">
+            <p className="section-eyebrow">About me</p>
+            <h2>Curious about code, <em>focused on impact.</em></h2>
+            <p>My path, interests, and current learning focus.</p>
+          </div>
+
+          <div className="about-copy reveal-on-scroll" data-reveal-delay="100">
+            <p>
+              I’m a Computer Science and Engineering student at Ahsanullah University of Science and Technology with a strong interest in web development, machine learning, and software engineering.
+            </p>
+            <p>
+              I enjoy transforming ideas into functional applications and continuously expanding my skills through academic projects and self-learning. My goal is to build impactful solutions that combine modern web technologies with artificial intelligence.
+            </p>
+            <p>
+              Currently, I’m focused on strengthening my knowledge of full-stack development, data structures and algorithms, databases, and machine learning.
+            </p>
+          </div>
+        </section>
 
         <section id="skills" className="skills-section">
           <div className="section-head">
