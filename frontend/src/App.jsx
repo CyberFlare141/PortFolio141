@@ -34,6 +34,17 @@ const projects = [
     source: 'https://github.com/CyberFlare141/Project-Blood-Donation',
     live: 'https://github.com/CyberFlare141/Project-Blood-Donation',
   },
+   {
+    kicker: 'Problem solving Platform',
+    title: 'Github Conflict Resolver',
+    description:
+      'The Git Conflict Resolver & Impact Simulator is a full-stack web application that helps developers analyze and resolve Git merge conflicts.',
+    tags: ['React', 'FastAPI', 'Python'],
+    details: ['Parse raw Git merge conflicts ', 'Visualize affected functions with an interactive graph', 'Generate AI-assisted merge suggestions', 'Docker support for quick deployment'],
+    source: 'https://github.com/CyberFlare141/Git-Conflict-Resolver',
+    live: 'https://git-conflict-resolver.vercel.app/',
+  },
+
 ]
 
 const skillLogos = {
